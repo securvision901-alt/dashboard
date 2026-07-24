@@ -33,6 +33,10 @@ export type Release = {
   status: string;
   catalog_number: string | null;
   upc: string | null;
+  price_cents: number;
+  is_free: boolean;
+  genre: string | null;
+  explicit: boolean;
   created_at: string;
   updated_at: string;
 };
@@ -46,6 +50,12 @@ export type Track = {
   isrc: string | null;
   isrc_explicit: boolean;
   audio_media_id: string | null;
+  audio_storage_path: string | null;
+  preview_seconds: number;
+  is_preview_enabled: boolean;
+  is_free: boolean;
+  download_allowed: boolean;
+  price_cents: number;
   status: string;
   created_at: string;
 };

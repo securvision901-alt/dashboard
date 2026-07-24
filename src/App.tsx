@@ -3,6 +3,7 @@ import { AdminLayout } from '@/components/layout/AdminLayout';
 import { ToastContainer } from '@/components/ui/Toast';
 import DashboardPage from '@/pages/DashboardPage';
 import ReleasesPage from '@/pages/catalog/ReleasesPage';
+import ReleaseDetailPage from '@/pages/catalog/ReleaseDetailPage';
 import TracksPage from '@/pages/catalog/TracksPage';
 import OrdersPage from '@/pages/commerce/OrdersPage';
 import BookingsPipelinePage from '@/pages/bookings/BookingsPipelinePage';
@@ -40,6 +41,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="/catalog/releases" element={<ReleasesPage />} />
+                <Route path="/catalog/releases/:id" element={<ReleaseDetailPage />} />
                 <Route path="/catalog/tracks" element={<TracksPage />} />
                 <Route path="/commerce/orders" element={<OrdersPage />} />
                 <Route path="/cms/galleries" element={<GalleriesPage />} />

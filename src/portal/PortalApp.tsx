@@ -11,6 +11,8 @@ import PortalVideosPage from '@/portal/pages/PortalVideosPage';
 import PortalLoginPage from '@/portal/pages/PortalLoginPage';
 import PortalSignupPage from '@/portal/pages/PortalSignupPage';
 import PortalDashboardPage from '@/portal/pages/PortalDashboardPage';
+import PortalMusicPage from '@/portal/pages/PortalMusicPage';
+import PortalReleaseDetailPage from '@/portal/pages/PortalReleaseDetailPage';
 
 export default function PortalApp() {
   const [user, setUser] = useState(supabase.auth.getUser().then((u) => u.data.user).catch(() => null));
@@ -34,6 +36,7 @@ export default function PortalApp() {
 
   const navItems = [
     { to: '/portal', label: 'Home', icon: <Home size={18} /> },
+    { to: '/portal/music', label: 'Music', icon: <Music size={18} /> },
     { to: '/portal/events', label: 'Events', icon: <Calendar size={18} /> },
     { to: '/portal/gallery', label: 'Gallery', icon: <ImageIcon size={18} /> },
     { to: '/portal/videos', label: 'Videos', icon: <Video size={18} /> },
@@ -118,6 +121,8 @@ export default function PortalApp() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<PortalHomePage />} />
+          <Route path="/music" element={<PortalMusicPage />} />
+          <Route path="/music/:id" element={<PortalReleaseDetailPage />} />
           <Route path="/events" element={<PortalEventsPage />} />
           <Route path="/events/:id" element={<PortalEventDetailPage />} />
           <Route path="/gallery" element={<PortalGalleryPage />} />
