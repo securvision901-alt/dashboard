@@ -36,66 +36,66 @@ interface NavItem {
 const navSections: { title: string; items: NavItem[] }[] = [
   {
     title: 'Overview',
-    items: [{ to: '/', label: 'Dashboard', icon: <LayoutDashboard size={18} /> }],
+    items: [{ to: '/admin', label: 'Dashboard', icon: <LayoutDashboard size={18} /> }],
   },
   {
     title: 'Catalog',
     items: [
-      { to: '/catalog/releases', label: 'Releases', icon: <Disc3 size={18} /> },
-      { to: '/catalog/tracks', label: 'Tracks', icon: <Music size={18} /> },
+      { to: '/admin/catalog/releases', label: 'Releases', icon: <Disc3 size={18} /> },
+      { to: '/admin/catalog/tracks', label: 'Tracks', icon: <Music size={18} /> },
     ],
   },
   {
     title: 'Commerce',
-    items: [{ to: '/commerce/orders', label: 'Orders', icon: <ShoppingBag size={18} /> }],
+    items: [{ to: '/admin/commerce/orders', label: 'Orders', icon: <ShoppingBag size={18} /> }],
   },
   {
     title: 'CMS',
     items: [
-      { to: '/cms/galleries', label: 'Image Galleries', icon: <Image size={18} /> },
-      { to: '/cms/videos', label: 'Video Galleries', icon: <Video size={18} /> },
-      { to: '/cms/banners', label: 'Banners', icon: <LayoutTemplate size={18} /> },
+      { to: '/admin/cms/galleries', label: 'Image Galleries', icon: <Image size={18} /> },
+      { to: '/admin/cms/videos', label: 'Video Galleries', icon: <Video size={18} /> },
+      { to: '/admin/cms/banners', label: 'Banners', icon: <LayoutTemplate size={18} /> },
     ],
   },
   {
     title: 'Tickets',
     items: [
-      { to: '/tickets/events', label: 'Events', icon: <Ticket size={18} /> },
-      { to: '/tickets/sales', label: 'Sales', icon: <ShoppingBag size={18} /> },
+      { to: '/admin/tickets/events', label: 'Events', icon: <Ticket size={18} /> },
+      { to: '/admin/tickets/sales', label: 'Sales', icon: <ShoppingBag size={18} /> },
     ],
   },
   {
     title: 'Bookings',
     items: [
-      { to: '/bookings/pipeline', label: 'Pipeline', icon: <Calendar size={18} /> },
-      { to: '/bookings/calendar', label: 'Calendar', icon: <Calendar size={18} /> },
-      { to: '/bookings/inquiries', label: 'Inquiries', icon: <Inbox size={18} /> },
+      { to: '/admin/bookings/pipeline', label: 'Pipeline', icon: <Calendar size={18} /> },
+      { to: '/admin/bookings/calendar', label: 'Calendar', icon: <Calendar size={18} /> },
+      { to: '/admin/bookings/inquiries', label: 'Inquiries', icon: <Inbox size={18} /> },
     ],
   },
   {
     title: 'CRM',
     items: [
-      { to: '/crm/contacts', label: 'Contacts', icon: <Users size={18} /> },
-      { to: '/crm/import', label: 'CSV Import', icon: <Download size={18} /> },
+      { to: '/admin/crm/contacts', label: 'Contacts', icon: <Users size={18} /> },
+      { to: '/admin/crm/import', label: 'CSV Import', icon: <Download size={18} /> },
     ],
   },
   {
     title: 'Fans',
     items: [
-      { to: '/fans', label: 'Fan Management', icon: <Heart size={18} /> },
+      { to: '/admin/fans', label: 'Fan Management', icon: <Heart size={18} /> },
     ],
   },
   {
     title: 'Comms',
-    items: [{ to: '/comms/campaigns', label: 'Campaigns', icon: <Mail size={18} /> }],
+    items: [{ to: '/admin/comms/campaigns', label: 'Campaigns', icon: <Mail size={18} /> }],
   },
   {
     title: 'System',
     items: [
-      { to: '/integrations', label: 'Integrations', icon: <Plug size={18} /> },
-      { to: '/automation', label: 'Automation (MCP)', icon: <Bot size={18} /> },
-      { to: '/exports', label: 'Exports', icon: <Download size={18} /> },
-      { to: '/settings', label: 'Settings', icon: <Settings size={18} /> },
+      { to: '/admin/integrations', label: 'Integrations', icon: <Plug size={18} /> },
+      { to: '/admin/automation', label: 'Automation (MCP)', icon: <Bot size={18} /> },
+      { to: '/admin/exports', label: 'Exports', icon: <Download size={18} /> },
+      { to: '/admin/settings', label: 'Settings', icon: <Settings size={18} /> },
     ],
   },
 ];
@@ -151,11 +151,14 @@ export function AdminLayout({ children }: { children: ReactNode }) {
           <span className="font-semibold text-neutral-900">Admin Portal</span>
         </div>
         <SidebarContent />
-        <div className="px-6 py-4 border-t border-neutral-200">
+        <div className="px-6 py-4 border-t border-neutral-200 space-y-2">
           <a href="/portal" className="flex items-center gap-2 text-xs text-neutral-500 hover:text-neutral-900 transition-colors">
-            <ExternalLink size={12} /> View User Portal
+            <ExternalLink size={12} /> View Fan Portal
           </a>
-          <p className="text-xs text-neutral-400 mt-2">Admin Portal v3.0</p>
+          <a href="/" className="flex items-center gap-2 text-xs text-neutral-500 hover:text-neutral-900 transition-colors">
+            <ExternalLink size={12} /> Back to Gate
+          </a>
+          <p className="text-xs text-neutral-400 mt-1">Admin Portal v3.0</p>
         </div>
       </aside>
 

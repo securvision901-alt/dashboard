@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Music, Mail, Lock, Building2, User, ArrowRight, Check } from 'lucide-react';
 import { useProAuth } from '@/pro/lib/auth';
 import { toast } from '@/components/ui/Toast';
@@ -15,10 +15,20 @@ const ROLES = [
 export default function ProSignupPage() {
   const { signUp } = useProAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [step, setStep] = useState<'role' | 'details'>('role');
   const [selectedRole, setSelectedRole] = useState('');
   const [form, setForm] = useState({ email: '', password: '', orgName: '', displayName: '' });
   const [loading, setLoading] = useState(false);
+
+  // Pre-select role from query param
+  useEffect(() => {
+    const roleParam = searchParams.get('role');
+    if (roleParam && ROLES.some((r) => r.value === roleParam)) {
+      setSelectedRole(roleParam);
+      setStep('details');
+    }
+  }, [searchParams]);
 
   const submit = async () => {
     if (!form.email || !form.password || !selectedRole) { toast('error', 'All fields are required'); return; }

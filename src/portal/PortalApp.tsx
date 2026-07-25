@@ -148,7 +148,7 @@ export default function PortalApp() {
       {/* Footer */}
       <footer className="border-t border-white/5 py-8 px-4 text-center">
         <p className="text-sm text-white/30">© 2026 My Artist. All rights reserved.</p>
-        <a href="/" className="text-xs text-white/20 hover:text-white/40 mt-1 inline-block">Admin Portal</a>
+        <a href="/" className="text-xs text-white/20 hover:text-white/40 mt-1 inline-block">Back to Gate</a>
       </footer>
     </div>
   );

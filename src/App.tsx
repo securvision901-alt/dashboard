@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AdminLayout } from '@/components/layout/AdminLayout';
 import { ToastContainer } from '@/components/ui/Toast';
+import GatePage from '@/pages/GatePage';
 import DashboardPage from '@/pages/DashboardPage';
 import ReleasesPage from '@/pages/catalog/ReleasesPage';
 import ReleaseDetailPage from '@/pages/catalog/ReleaseDetailPage';
@@ -31,15 +32,18 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* User Portal */}
+        {/* Gate — intent router */}
+        <Route path="/" element={<GatePage />} />
+
+        {/* Fan Portal */}
         <Route path="/portal/*" element={<PortalApp />} />
 
-        {/* B2B Portal (Sync/Booking/Writer/Admin) */}
+        {/* B2B Portal (Sync / Booking / Writer / B2B Admin) */}
         <Route path="/pro/*" element={<ProApp />} />
 
-        {/* Admin Portal */}
+        {/* Global Admin */}
         <Route
-          path="/*"
+          path="/admin/*"
           element={
             <AdminLayout>
               <Routes>
