@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Music, Building2, PenLine, Disc3, Calendar, ShoppingBag, FileText } from 'lucide-react';
+import { ArrowRight, BarChart3, ChevronRight, Music, Building2, PenLine, Disc3, Calendar, ShoppingBag, FileText } from 'lucide-react';
 
 const PORTALS = [
   {
