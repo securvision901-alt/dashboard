@@ -25,6 +25,7 @@ import TicketEventsPage from '@/pages/tickets/TicketEventsPage';
 import TicketSalesPage from '@/pages/tickets/TicketSalesPage';
 import FansPage from '@/pages/fans/FansPage';
 import PortalApp from '@/portal/PortalApp';
+import ProApp from '@/pro/ProApp';
 
 export default function App() {
   return (
@@ -32,6 +33,9 @@ export default function App() {
       <Routes>
         {/* User Portal */}
         <Route path="/portal/*" element={<PortalApp />} />
+
+        {/* B2B Portal (Sync/Booking/Writer/Admin) */}
+        <Route path="/pro/*" element={<ProApp />} />
 
         {/* Admin Portal */}
         <Route

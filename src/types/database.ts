@@ -405,3 +405,287 @@ export type FanFavorite = {
   event_id: string | null;
   created_at: string;
 };
+
+// B2B Portal types
+
+export type Tenant = {
+  id: string;
+  name: string;
+  subdomain: string;
+  custom_domain: string | null;
+  branding_config: Record<string, unknown>;
+  plan: string;
+  status: string;
+  storage_quota_bytes: number;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type PortalUser = {
+  id: string;
+  tenant_id: string;
+  email: string;
+  password_hash: string | null;
+  role: 'admin' | 'label' | 'booking' | 'writer';
+  secondary_roles: string[];
+  org_name: string | null;
+  status: 'pending' | 'approved' | 'suspended' | 'rejected';
+  verified_at: string | null;
+  last_login_at: string | null;
+  display_name: string | null;
+  phone: string | null;
+  avatar_url: string | null;
+  bio: string | null;
+  website: string | null;
+  social_links: Record<string, unknown>;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type CatalogSong = {
+  id: string;
+  tenant_id: string;
+  title: string;
+  slug: string;
+  alternate_titles: string[];
+  description: string | null;
+  lyrics: string | null;
+  explicit: boolean;
+  language: string | null;
+  genre: string;
+  mood_tags: string[];
+  energy: number | null;
+  valence: number | null;
+  bpm: number | null;
+  key: string | null;
+  time_signature: string | null;
+  duration_seconds: number;
+  composer: string[];
+  producer: string[];
+  mix_engineer: string | null;
+  master_owner: string | null;
+  publishing_owner: string | null;
+  recording_year: number | null;
+  release_year: number | null;
+  album: string | null;
+  version_label: string | null;
+  isrc: string | null;
+  iswc: string | null;
+  upc: string | null;
+  pro: string | null;
+  splits: unknown[];
+  stems_available: boolean;
+  master_url: string | null;
+  preview_url: string | null;
+  watermarked_url: string | null;
+  cover_art_url: string | null;
+  distribution_flag: 'public_streaming' | 'catalog_only' | 'private';
+  distribution_status: 'not_submitted' | 'validation_failed' | 'submitted' | 'published' | 'error';
+  sync_status: 'available' | 'on_hold' | 'licensed' | 'sold' | 'not_for_sync';
+  for_sale: boolean;
+  asking_price: number | null;
+  asking_price_negotiable: boolean;
+  visible_to_roles: string[];
+  is_active: boolean;
+  published_at: string | null;
+  version: number;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type PortalRequest = {
+  id: string;
+  tenant_id: string;
+  user_id: string;
+  song_id: string | null;
+  type: 'booking' | 'sync' | 'collab' | 'purchase' | 'custom_write';
+  status: string;
+  assigned_to: string | null;
+  payload: Record<string, unknown>;
+  blocked_reason: string | null;
+  version: number;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type RequestStatusHistory = {
+  id: string;
+  tenant_id: string;
+  request_id: string;
+  from_status: string | null;
+  to_status: string;
+  changed_by: string;
+  note: string | null;
+  created_at: string;
+};
+
+export type CollabCall = {
+  id: string;
+  tenant_id: string;
+  title: string;
+  description: string;
+  what_needed: string;
+  deadline: string | null;
+  status: 'open' | 'closed' | 'filled';
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type MessageThread = {
+  id: string;
+  tenant_id: string;
+  request_id: string | null;
+  subject: string | null;
+  user_id: string;
+  is_archived: boolean;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type Message = {
+  id: string;
+  tenant_id: string;
+  thread_id: string;
+  sender_id: string;
+  body: string;
+  is_internal_note: boolean;
+  created_at: string;
+  deleted_at: string | null;
+};
+
+export type PortalNotification = {
+  id: string;
+  tenant_id: string;
+  user_id: string;
+  type: string;
+  related_entity_type: string | null;
+  related_entity_id: string | null;
+  body: string;
+  read_at: string | null;
+  created_at: string;
+};
+
+export type SpendEntry = {
+  id: string;
+  tenant_id: string;
+  category: string;
+  direction: string;
+  amount: number;
+  currency: string;
+  related_request_id: string | null;
+  related_song_id: string | null;
+  notes: string | null;
+  occurred_on: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type PortalDocument = {
+  id: string;
+  tenant_id: string;
+  user_id: string | null;
+  request_id: string | null;
+  song_id: string | null;
+  file_url: string;
+  file_name: string;
+  type: string;
+  esign_status: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};
+
+export type AvailabilityHold = {
+  id: string;
+  tenant_id: string;
+  date: string;
+  status: 'open' | 'hold' | 'booked' | 'blocked';
+  label: string | null;
+  request_id: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+// User Portal Enhancement types
+
+export type ShopProduct = {
+  id: string;
+  title: string;
+  description: string | null;
+  category: string | null;
+  price: number;
+  currency: string;
+  image_url: string | null;
+  inventory_count: number;
+  is_active: boolean;
+  sort_order: number;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ShopOrder = {
+  id: string;
+  user_id: string | null;
+  fan_email: string;
+  fan_name: string | null;
+  product_id: string;
+  quantity: number;
+  total_amount: number;
+  currency: string;
+  status: string;
+  shipping_address: string | null;
+  tracking_number: string | null;
+  stripe_payment_intent_id: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TourDate = {
+  id: string;
+  title: string;
+  venue: string;
+  city: string | null;
+  state: string | null;
+  country: string | null;
+  date: string;
+  door_time: string | null;
+  show_time: string | null;
+  ticket_url: string | null;
+  ticket_event_id: string | null;
+  is_sold_out: boolean;
+  is_public: boolean;
+  notes: string | null;
+  sort_order: number;
+  created_at: string;
+  updated_at: string;
+};
+
+export type UserLoyalty = {
+  id: string;
+  user_id: string | null;
+  fan_email: string;
+  total_points: number;
+  tier: 'fan' | 'silver' | 'gold' | 'platinum';
+  lifetime_spend: number;
+  currency: string;
+  joined_at: string;
+  updated_at: string;
+};
+
+export type LoyaltyTransaction = {
+  id: string;
+  user_id: string | null;
+  fan_email: string;
+  points: number;
+  direction: 'earned' | 'spent';
+  reason: string;
+  related_order_id: string | null;
+  created_at: string;
+};

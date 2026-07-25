@@ -1,5 +1,5 @@
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
-import { Music, Calendar, Image as ImageIcon, Video, User, Home, LogOut, Menu, X } from 'lucide-react';
+import { Music, Calendar, Image as ImageIcon, Video, User, Home, LogOut, Menu, X, ShoppingBag, MapPin, Award } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { toast } from '@/components/ui/Toast';
@@ -13,6 +13,9 @@ import PortalSignupPage from '@/portal/pages/PortalSignupPage';
 import PortalDashboardPage from '@/portal/pages/PortalDashboardPage';
 import PortalMusicPage from '@/portal/pages/PortalMusicPage';
 import PortalReleaseDetailPage from '@/portal/pages/PortalReleaseDetailPage';
+import PortalShopPage from '@/portal/pages/PortalShopPage';
+import PortalToursPage from '@/portal/pages/PortalToursPage';
+import PortalLoyaltyPage from '@/portal/pages/PortalLoyaltyPage';
 
 export default function PortalApp() {
   const [user, setUser] = useState(supabase.auth.getUser().then((u) => u.data.user).catch(() => null));
@@ -38,6 +41,8 @@ export default function PortalApp() {
     { to: '/portal', label: 'Home', icon: <Home size={18} /> },
     { to: '/portal/music', label: 'Music', icon: <Music size={18} /> },
     { to: '/portal/events', label: 'Events', icon: <Calendar size={18} /> },
+    { to: '/portal/tours', label: 'Tours', icon: <MapPin size={18} /> },
+    { to: '/portal/shop', label: 'Shop', icon: <ShoppingBag size={18} /> },
     { to: '/portal/gallery', label: 'Gallery', icon: <ImageIcon size={18} /> },
     { to: '/portal/videos', label: 'Videos', icon: <Video size={18} /> },
   ];
@@ -76,6 +81,9 @@ export default function PortalApp() {
                 <Link to="/portal/dashboard" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
                   <User size={16} /> Dashboard
                 </Link>
+                <Link to="/portal/account" className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
+                  <Award size={16} /> Account
+                </Link>
                 <button onClick={signOut} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors">
                   <LogOut size={16} /> Sign Out
                 </button>
@@ -105,6 +113,7 @@ export default function PortalApp() {
             {user ? (
               <>
                 <Link to="/portal/dashboard" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5"><User size={16} /> Dashboard</Link>
+                <Link to="/portal/account" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5"><Award size={16} /> Account</Link>
                 <button onClick={() => { signOut(); setMobileOpen(false); }} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5"><LogOut size={16} /> Sign Out</button>
               </>
             ) : (
@@ -130,6 +139,9 @@ export default function PortalApp() {
           <Route path="/login" element={<PortalLoginPage />} />
           <Route path="/signup" element={<PortalSignupPage />} />
           <Route path="/dashboard" element={<PortalDashboardPage />} />
+          <Route path="/account" element={<PortalLoyaltyPage />} />
+          <Route path="/shop" element={<PortalShopPage />} />
+          <Route path="/tours" element={<PortalToursPage />} />
         </Routes>
       </main>
 
