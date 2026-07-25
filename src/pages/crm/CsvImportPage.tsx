@@ -314,7 +314,7 @@ export default function CsvImportPage() {
           </p>
           <div className="flex justify-center gap-2 mt-6">
             <Button onClick={reset}>Import Another File</Button>
-            <Button variant="primary" onClick={() => window.location.href = '/crm/contacts'}>View Contacts</Button>
+            <Button variant="primary" onClick={() => window.location.href = '/admin/audience/contacts'}>View Contacts</Button>
           </div>
         </Card>
       )}

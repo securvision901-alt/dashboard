@@ -63,7 +63,7 @@ export default function DashboardPage() {
         <Card className="p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-neutral-900">Upcoming Bookings</h3>
-            <Link to="/bookings/pipeline" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
+            <Link to="/admin/bookings/pipeline" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
               View all <ArrowUpRight size={14} />
             </Link>
           </div>
@@ -72,7 +72,7 @@ export default function DashboardPage() {
           ) : (
             <div className="space-y-3">
               {upcomingBookings.map((b) => (
-                <Link key={b.id} to={`/bookings/${b.id}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-neutral-50 transition-colors">
+                <Link key={b.id} to={`/admin/bookings/${b.id}`} className="flex items-center justify-between p-3 rounded-lg hover:bg-neutral-50 transition-colors">
                   <div>
                     <p className="text-sm font-medium text-neutral-900">{b.event_name}</p>
                     <p className="text-xs text-neutral-500">{b.venue_name} · {formatDate(b.event_date)}</p>
@@ -88,7 +88,7 @@ export default function DashboardPage() {
         <Card className="p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-neutral-900">Recent Inquiries</h3>
-            <Link to="/bookings/inquiries" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
+            <Link to="/admin/bookings/inquiries" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
               View all <ArrowUpRight size={14} />
             </Link>
           </div>
@@ -113,7 +113,7 @@ export default function DashboardPage() {
         <Card className="p-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-neutral-900">Recent Orders</h3>
-            <Link to="/commerce/orders" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
+            <Link to="/admin/shop/orders" className="text-sm text-neutral-500 hover:text-neutral-900 flex items-center gap-1">
               View all <ArrowUpRight size={14} />
             </Link>
           </div>

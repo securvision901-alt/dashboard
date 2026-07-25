@@ -24,6 +24,8 @@ import {
   Ticket,
   Heart,
   ExternalLink,
+  MapPin,
+  Radio,
 } from 'lucide-react';
 
 interface NavItem {
@@ -39,29 +41,24 @@ const navSections: { title: string; items: NavItem[] }[] = [
     items: [{ to: '/admin', label: 'Dashboard', icon: <LayoutDashboard size={18} /> }],
   },
   {
-    title: 'Catalog',
+    title: 'Music',
     items: [
-      { to: '/admin/catalog/releases', label: 'Releases', icon: <Disc3 size={18} /> },
-      { to: '/admin/catalog/tracks', label: 'Tracks', icon: <Music size={18} /> },
+      { to: '/admin/music/albums', label: 'Albums & Tracks', icon: <Disc3 size={18} /> },
+      { to: '/admin/music/distribution', label: 'Streaming & Distribution', icon: <Radio size={18} /> },
     ],
   },
   {
-    title: 'Commerce',
-    items: [{ to: '/admin/commerce/orders', label: 'Orders', icon: <ShoppingBag size={18} /> }],
-  },
-  {
-    title: 'CMS',
+    title: 'Shop',
     items: [
-      { to: '/admin/cms/galleries', label: 'Image Galleries', icon: <Image size={18} /> },
-      { to: '/admin/cms/videos', label: 'Video Galleries', icon: <Video size={18} /> },
-      { to: '/admin/cms/banners', label: 'Banners', icon: <LayoutTemplate size={18} /> },
+      { to: '/admin/shop/products', label: 'Products', icon: <ShoppingBag size={18} /> },
+      { to: '/admin/shop/orders', label: 'Orders', icon: <ShoppingBag size={18} /> },
     ],
   },
   {
-    title: 'Tickets',
+    title: 'Events',
     items: [
-      { to: '/admin/tickets/events', label: 'Events', icon: <Ticket size={18} /> },
-      { to: '/admin/tickets/sales', label: 'Sales', icon: <ShoppingBag size={18} /> },
+      { to: '/admin/events/tickets', label: 'Ticket Events', icon: <Ticket size={18} /> },
+      { to: '/admin/events/tours', label: 'Tour Dates', icon: <MapPin size={18} /> },
     ],
   },
   {
@@ -73,27 +70,24 @@ const navSections: { title: string; items: NavItem[] }[] = [
     ],
   },
   {
-    title: 'CRM',
+    title: 'Audience',
     items: [
-      { to: '/admin/crm/contacts', label: 'Contacts', icon: <Users size={18} /> },
-      { to: '/admin/crm/import', label: 'CSV Import', icon: <Download size={18} /> },
+      { to: '/admin/audience/contacts', label: 'Contacts', icon: <Users size={18} /> },
+      { to: '/admin/audience/fans', label: 'Fans', icon: <Heart size={18} /> },
+      { to: '/admin/audience/campaigns', label: 'Email Campaigns', icon: <Mail size={18} /> },
     ],
   },
   {
-    title: 'Fans',
+    title: 'Content',
     items: [
-      { to: '/admin/fans', label: 'Fan Management', icon: <Heart size={18} /> },
+      { to: '/admin/content', label: 'Pages & Media', icon: <LayoutTemplate size={18} /> },
     ],
-  },
-  {
-    title: 'Comms',
-    items: [{ to: '/admin/comms/campaigns', label: 'Campaigns', icon: <Mail size={18} /> }],
   },
   {
     title: 'System',
     items: [
       { to: '/admin/integrations', label: 'Integrations', icon: <Plug size={18} /> },
-      { to: '/admin/automation', label: 'Automation (MCP)', icon: <Bot size={18} /> },
+      { to: '/admin/automation', label: 'Automation', icon: <Bot size={18} /> },
       { to: '/admin/exports', label: 'Exports', icon: <Download size={18} /> },
       { to: '/admin/settings', label: 'Settings', icon: <Settings size={18} /> },
     ],
@@ -227,7 +221,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
             <div className="relative">
               <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
               <input
-                placeholder="Search bookings, contacts, releases…"
+                placeholder="Search music, orders, contacts…"
                 className="w-full pl-9 pr-4 py-2 text-sm bg-neutral-100 rounded-lg border border-transparent focus:outline-none focus:border-neutral-300 focus:bg-white transition-colors"
               />
             </div>

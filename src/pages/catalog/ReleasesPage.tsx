@@ -34,13 +34,13 @@ export default function ReleasesPage() {
 
   return (
     <div>
-      <PageHeader title="Releases" description="Manage your catalog — upload audio, set pricing, UPC/ISRC, and distribution" actions={<Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Release</Button>} />
+      <PageHeader title="Music — Albums & Tracks" description="Manage your catalog — upload audio, set pricing, UPC/ISRC, and distribution" actions={<Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Album</Button>} />
       {loading ? <LoadingState /> : releases.length === 0 ? (
         <Card className="p-6"><EmptyState icon={<Disc3 size={48} />} title="No releases yet" description="Create your first release, add tracks, upload audio, and set pricing" action={<Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Release</Button>} /></Card>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {releases.map((r) => (
-            <Link key={r.id} to={`/catalog/releases/${r.id}`}>
+            <Link key={r.id} to={`/admin/music/albums/${r.id}`}>
               <Card className="p-5 hover:shadow-md transition-shadow cursor-pointer h-full">
                 <div className="flex items-start gap-3">
                   <div className="w-14 h-14 rounded-lg bg-neutral-100 flex items-center justify-center flex-shrink-0">

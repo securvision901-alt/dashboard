@@ -61,7 +61,7 @@ export default function BookingDetailPage() {
     const { error } = await supabase.from('bookings').delete().eq('id', booking.id);
     if (error) { toast('error', 'Failed to delete'); return; }
     toast('success', 'Booking deleted');
-    navigate('/bookings/pipeline');
+    navigate('/admin/bookings/pipeline');
   };
 
   if (loading) return <LoadingState />;
@@ -73,7 +73,7 @@ export default function BookingDetailPage() {
 
   return (
     <div>
-      <Link to="/bookings/pipeline" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
+      <Link to="/admin/bookings/pipeline" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
         <ArrowLeft size={16} /> Back to Pipeline
       </Link>
 

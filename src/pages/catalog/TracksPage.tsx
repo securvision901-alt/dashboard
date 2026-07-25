@@ -37,7 +37,7 @@ export default function TracksPage() {
 
   return (
     <div>
-      <PageHeader title="Tracks" description="All tracks across your catalog — click a release to manage audio and pricing" actions={<Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Track</Button>} />
+      <PageHeader title="Music — All Tracks" description="Every track across your catalog — click an album to manage audio and pricing" actions={<Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Track</Button>} />
       {loading ? <LoadingState /> : tracks.length === 0 ? (
         <Card className="p-6"><EmptyState icon={<Music size={48} />} title="No tracks yet" description="Create a release first, then add tracks from the release detail page" /></Card>
       ) : (
@@ -61,7 +61,7 @@ export default function TracksPage() {
                   <td className="px-4 py-3 text-sm text-neutral-400">{t.position}</td>
                   <td className="px-4 py-3 text-sm font-medium text-neutral-900">{t.title}</td>
                   <td className="px-4 py-3 text-sm text-neutral-600">
-                    <Link to={`/catalog/releases/${releaseId(t.release_id)}`} className="hover:text-neutral-900 hover:underline">{releaseTitle(t.release_id)}</Link>
+                    <Link to={`/admin/music/albums/${releaseId(t.release_id)}`} className="hover:text-neutral-900 hover:underline">{releaseTitle(t.release_id)}</Link>
                   </td>
                   <td className="px-4 py-3">
                     {t.audio_storage_path ? (

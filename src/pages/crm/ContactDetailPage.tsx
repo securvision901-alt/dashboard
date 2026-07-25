@@ -67,7 +67,7 @@ export default function ContactDetailPage() {
     const { error } = await supabase.from('crm_contacts').delete().eq('id', contact.id);
     if (error) { toast('error', 'Failed to delete'); return; }
     toast('success', 'Contact deleted');
-    navigate('/crm/contacts');
+    navigate('/admin/audience/contacts');
   };
 
   const toggleActivityComplete = async (activity: CrmActivity) => {
@@ -85,7 +85,7 @@ export default function ContactDetailPage() {
 
   return (
     <div>
-      <Link to="/crm/contacts" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
+      <Link to="/admin/audience/contacts" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
         <ArrowLeft size={16} /> Back to Contacts
       </Link>
 

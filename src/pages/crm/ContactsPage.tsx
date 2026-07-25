@@ -76,7 +76,7 @@ export default function ContactsPage() {
         description="Manage your team — venues, promoters, stylists, photographers, and more"
         actions={
           <>
-            <Link to="/crm/import"><Button variant="secondary"><Upload size={16} /> Import CSV</Button></Link>
+            <Link to="/admin/audience/import"><Button variant="secondary"><Upload size={16} /> Import CSV</Button></Link>
             <Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Contact</Button>
           </>
         }
@@ -126,7 +126,7 @@ export default function ContactsPage() {
               {filtered.map((c) => (
                 <tr key={c.id} className="hover:bg-neutral-50 transition-colors">
                   <td className="px-4 py-3">
-                    <Link to={`/crm/contacts/${c.id}`} className="block">
+                    <Link to={`/admin/audience/contacts/${c.id}`} className="block">
                       <p className="text-sm font-medium text-neutral-900">{c.name}</p>
                       <p className="text-xs text-neutral-400">{c.email}</p>
                     </Link>
@@ -156,7 +156,7 @@ export default function ContactsPage() {
                   </div>
                   <div className="p-2 space-y-2 min-h-[100px]">
                     {stageContacts.map((c) => (
-                      <Link key={c.id} to={`/crm/contacts/${c.id}`} className="block bg-white rounded-lg border border-neutral-200 p-3 hover:shadow-sm transition-shadow">
+                      <Link key={c.id} to={`/admin/audience/contacts/${c.id}`} className="block bg-white rounded-lg border border-neutral-200 p-3 hover:shadow-sm transition-shadow">
                         <p className="text-sm font-medium text-neutral-900">{c.name}</p>
                         <p className="text-xs text-neutral-500">{c.company ?? c.email ?? '—'}</p>
                         <div className="flex items-center justify-between mt-2">

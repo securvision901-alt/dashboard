@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Music, Building2, PenLine, Shield, Disc3, Calendar, ShoppingBag, Users, FileText, BarChart3 } from 'lucide-react';
+import { ArrowRight, ChevronRight, Music, Building2, PenLine, Disc3, Calendar, ShoppingBag, FileText } from 'lucide-react';
 
 const PORTALS = [
   {
@@ -50,22 +50,6 @@ const PORTALS = [
       { icon: <Music size={14} />, label: 'Submit demos & pitches' },
       { icon: <ShoppingBag size={14} />, label: 'Buy a song outright' },
       { icon: <FileText size={14} />, label: 'Track submissions' },
-    ],
-  },
-  {
-    id: 'admin',
-    tag: 'GLOBAL ADMIN',
-    tagline: 'Artist · Label Owner · Operations',
-    headline: 'Full control. Every system.',
-    description: 'Catalog, distribution, CRM, bookings, tickets, commerce, CMS, fan management, spend tracking, and portal user approvals — one control plane.',
-    route: '/admin',
-    status: 'live' as const,
-    requiresKey: true,
-    features: [
-      { icon: <Disc3 size={14} />, label: 'Catalog & distribution' },
-      { icon: <Users size={14} />, label: 'CRM & fan management' },
-      { icon: <BarChart3 size={14} />, label: 'Bookings pipeline & tickets' },
-      { icon: <Shield size={14} />, label: 'Portal user approvals' },
     ],
   },
 ];
@@ -129,7 +113,7 @@ export default function GatePage() {
               >
                 <div className={`w-2 h-2 rounded-full mt-1 flex-shrink-0 ${STATUS_DOT[p.status]}`} />
                 <div>
-                  <p className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">{p.tag === 'GLOBAL ADMIN' ? 'Admin Dashboard' : p.tag === 'FAN' ? 'Fan Portal' : p.tag === 'INDUSTRY' ? 'Industry Portal' : 'Artist Collab Portal'}</p>
+                  <p className="text-sm font-medium text-white/70 group-hover:text-white transition-colors">{p.tag === 'FAN' ? 'Fan Portal' : p.tag === 'INDUSTRY' ? 'Industry Portal' : 'Artist Collab Portal'}</p>
                   <p className="text-xs text-white/30">{STATUS_LABEL[p.status]}</p>
                 </div>
               </button>
@@ -176,7 +160,6 @@ export default function GatePage() {
                       {portal.id === 'fan' && <Music size={20} />}
                       {portal.id === 'industry' && <Building2 size={20} />}
                       {portal.id === 'collab' && <PenLine size={20} />}
-                      {portal.id === 'admin' && <Shield size={20} />}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className={`text-[10px] font-bold tracking-[0.18em] uppercase mb-0.5 ${isExpanded ? 'text-neutral-900' : 'text-neutral-400'}`}>
@@ -225,7 +208,7 @@ export default function GatePage() {
                         onClick={() => go(portal)}
                         className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors"
                       >
-                        {portal.id === 'admin' ? 'Enter Admin Dashboard' : portal.id === 'fan' ? 'Enter Fan Portal' : portal.id === 'collab' ? 'Request Collab Access' : 'Sign In / Request Access'}
+                        {portal.id === 'fan' ? 'Enter Fan Portal' : portal.id === 'collab' ? 'Request Collab Access' : 'Sign In / Request Access'}
                         <ArrowRight size={15} />
                       </button>
                     </div>
@@ -236,7 +219,7 @@ export default function GatePage() {
           </div>
 
           <p className="text-xs text-neutral-300 mt-8 max-w-md">
-            Each portal requires appropriate credentials. Fan and public-facing content is open. Industry, collab, and admin access is role-gated.
+            Each portal requires appropriate credentials. Fan and public-facing content is open. Industry and collab access is role-gated.
           </p>
         </div>
       </div>

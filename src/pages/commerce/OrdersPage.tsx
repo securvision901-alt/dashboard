@@ -23,7 +23,7 @@ export default function OrdersPage() {
 
   return (
     <div>
-      <PageHeader title="Orders" description="Commerce orders from your store" />
+      <PageHeader title="Shop Orders" description="Orders placed by fans in your shop" />
       {loading ? <LoadingState /> : orders.length === 0 ? (
         <Card className="p-6"><EmptyState icon={<ShoppingBag size={48} />} title="No orders yet" description="Orders will appear here when fans purchase" /></Card>
       ) : (

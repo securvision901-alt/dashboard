@@ -115,7 +115,7 @@ export default function BookingsCalendarPage() {
                     {dayBookings.slice(0, 3).map((b) => (
                       <Link
                         key={b.id}
-                        to={`/bookings/${b.id}`}
+                        to={`/admin/bookings/${b.id}`}
                         onClick={(e) => e.stopPropagation()}
                         className="block"
                       >

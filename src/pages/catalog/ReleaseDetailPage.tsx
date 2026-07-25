@@ -61,7 +61,7 @@ export default function ReleaseDetailPage() {
     const { error } = await supabase.from('releases').delete().eq('id', release.id);
     if (error) { toast('error', 'Failed to delete'); return; }
     toast('success', 'Release deleted');
-    navigate('/catalog/releases');
+    navigate('/admin/music/albums');
   };
 
   const deleteTrack = async (trackId: string) => {
@@ -81,7 +81,7 @@ export default function ReleaseDetailPage() {
 
   return (
     <div>
-      <Link to="/catalog/releases" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
+      <Link to="/admin/music/albums" className="inline-flex items-center gap-1 text-sm text-neutral-500 hover:text-neutral-900 mb-4">
         <ArrowLeft size={16} /> Back to Releases
       </Link>
 

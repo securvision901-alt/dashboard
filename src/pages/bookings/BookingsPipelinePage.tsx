@@ -60,7 +60,7 @@ export default function BookingsPipelinePage() {
         description="Drag bookings across stages to update their status"
         actions={
           <>
-            <Link to="/bookings/calendar"><Button variant="secondary"><Calendar size={16} /> Calendar</Button></Link>
+            <Link to="/admin/bookings/calendar"><Button variant="secondary"><Calendar size={16} /> Calendar</Button></Link>
             <Button variant="primary" onClick={() => setCreateOpen(true)}><Plus size={16} /> New Booking</Button>
           </>
         }
@@ -105,7 +105,7 @@ export default function BookingsPipelinePage() {
                         onDragEnd={() => { setDraggedId(null); setDragOverCol(null); }}
                         className={`bg-white rounded-lg border border-neutral-200 p-3 cursor-grab hover:shadow-sm transition-shadow ${draggedId === b.id ? 'opacity-50' : ''}`}
                       >
-                        <Link to={`/bookings/${b.id}`} className="block">
+                        <Link to={`/admin/bookings/${b.id}`} className="block">
                           <div className="flex items-start justify-between gap-2 mb-1">
                             <p className="text-sm font-medium text-neutral-900 line-clamp-1">{b.event_name}</p>
                             <GripVertical size={14} className="text-neutral-300 flex-shrink-0" />
